@@ -17,4 +17,3 @@ class Call():
         self.begin_time = begin_time
         self.end_time = end_time
         self.call_type = call_type
-    

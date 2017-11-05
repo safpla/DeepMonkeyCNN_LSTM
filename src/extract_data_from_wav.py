@@ -35,7 +35,7 @@ def extract_call_seg(table_filenames):
 def extract_data(wav_filenames, call_segs, hdf5_filename):
     """
     hdf5 format:
-    
+
     """
     # make hdf5 file
     fout = h5py.File(hdf5_filename, 'w')
@@ -77,16 +77,16 @@ def extract_data(wav_filenames, call_segs, hdf5_filename):
             sig = np.fromstring(sig, dtype=np.short)
             sig = np.reshape(sig, (-1, nchannels))
             sig = np.transpose(sig)
-            
+
             height = DATA_HEIGHT
             width = round(((MAX_LSTM_STEP -1) * SHIFT_FRAME + 1) * DATA_WIDTH)
 
             _, _, specPar = spectrogram(
-                    sig[:][0], 
-                    fs=Fs, window='hann', 
-                    nperseg=WINSIZE_SPEC, 
-                    noverlap=OVERLAP_SPEC, 
-                    scaling='spectrum', 
+                    sig[:][0],
+                    fs=Fs, window='hann',
+                    nperseg=WINSIZE_SPEC,
+                    noverlap=OVERLAP_SPEC,
+                    scaling='spectrum',
                     mode='magnitude')
             specPar = np.log(specPar)
             specParPad = cv2.resize(specPar, (width, height))
@@ -102,7 +102,7 @@ def extract_data(wav_filenames, call_segs, hdf5_filename):
             specRefPad = cv2.resize(specRef, (width, height))
 
             specDifPad = specParPad - specRefPad
-            
+
             for j in range(MAX_LSTM_STEP):
                 buf[:,:,0,j] = specParPad[:,j*int(DATA_WIDTH * SHIFT_FRAME) : j*int(DATA_WIDTH * SHIFT_FRAME) + DATA_WIDTH]
                 buf[:,:,1,j] = specRefPad[:,j*int(DATA_WIDTH * SHIFT_FRAME) : j*int(DATA_WIDTH * SHIFT_FRAME) + DATA_WIDTH]
@@ -119,14 +119,10 @@ def extract_data(wav_filenames, call_segs, hdf5_filename):
     fout.close()
     print(pure_noise_sample)
 
-            
-
-
-
 
 if __name__ == '__main__':
-    #wav_filenames = ['../data/voc_9606_c_S270.wav']
-    #table_filenames = ['../table/SelectionTable_voc_9606_c_S270.txt']
+    #wav_filenames = ['../data/wav/voc_9606_c_S270.wav']
+    #table_filenames = ['../data/table/SelectionTable_voc_9606_c_S270.txt']
     wav_filenames = ['/mnt/hgfs/VM_share/voc_M93A_c_S187.wav',
                      '/mnt/hgfs/VM_share/voc_M93A_c_S191.wav',
                      '/mnt/hgfs/VM_share/voc_M93A_c_S198.wav']
@@ -135,8 +131,7 @@ if __name__ == '__main__':
                        '/mnt/hgfs/VM_share/SelectionTable_voc_M93A_c_S198.txt']
     #wav_filenames = ['/mnt/hgfs/VM_share/voc_M93A_c_S198.wav']
     #table_filenames = ['/mnt/hgfs/VM_share/SelectionTable_voc_M93A_c_S191.txt']
-    hdf5_filename = '../data/train_data_M93A.hdf5'
+    hdf5_filename = '../data/hdf5/train_data_M93A.hdf5'
     call_segs = extract_call_seg(table_filenames)
     extract_data(wav_filenames, call_segs, hdf5_filename)
-    
 

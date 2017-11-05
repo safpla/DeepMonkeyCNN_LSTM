@@ -1,0 +1,66 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AudioStateQuery	src/utilizer.py	/^class AudioStateQuery():$/;"	c
+BATCH_SIZE	src/config.py	/^BATCH_SIZE = 128$/;"	v
+CALLTYPE_IND_DIC	src/config.py	/^CALLTYPE_IND_DIC = {'Noise': 0, 'Trill': 1, 'Phee': 2, 'Trillphee': 3, 'Twitter':4, 'Sd-peep': 5, 'Others': 6}$/;"	v
+CNNLSTM	dps/models/clf/cnn_lstm.py	/^class CNNLSTM():$/;"	c
+Call	src/call.py	/^class Call():$/;"	c
+DATA_HEIGHT	src/config.py	/^DATA_HEIGHT = 64$/;"	v
+DATA_WIDTH	src/config.py	/^DATA_WIDTH = 64$/;"	v
+DataProvider	dps/dataio/data_provider.py	/^class DataProvider(object):$/;"	c
+DataProvider	dps/utils/data_provider.py	/^class DataProvider(object):$/;"	c
+FS	src/config.py	/^FS = 50000$/;"	v
+MAX_LSTM_STEP	src/config.py	/^MAX_LSTM_STEP = 100 # 4 secs: 160 * 0.05 * 0.8$/;"	v
+OVERLAP_SPEC	src/config.py	/^OVERLAP_SPEC = 462 # shift 50 points$/;"	v
+SHIFT_FRAME	src/config.py	/^SHIFT_FRAME = 0.8 # percent$/;"	v
+WINSIZE_FRAME	src/config.py	/^WINSIZE_FRAME = 0.05 # sec, 50 points in spectrum if FS = 50000 and SHIFT_SPEC = 50$/;"	v
+WINSIZE_SPEC	src/config.py	/^WINSIZE_SPEC = 512 # number of points used in STFT, 256 points in frequency domain$/;"	v
+__init__	dps/dataio/data_provider.py	/^    def __init__(self, data_shape, label_shape, num_classes):$/;"	m	class:DataProvider
+__init__	dps/models/clf/cnn_lstm.py	/^    def __init__(self, args):$/;"	m	class:CNNLSTM
+__init__	dps/utils/data_provider.py	/^    def __init__(self, data_shape, label_shape, num_classes):$/;"	m	class:DataProvider
+__init__	src/call.py	/^    def __init__(self, subject, session_num, channel_num, begin_time, end_time, call_type):$/;"	m	class:Call
+__init__	src/utilizer.py	/^    def __init__(self, call_seg, duration, res):$/;"	m	class:AudioStateQuery
+_create_placeholders	dps/models/clf/cnn_lstm.py	/^    def _create_placeholders(self, args):$/;"	m	class:CNNLSTM
+args	src/train_script.py	/^    args = utils.load_argparser_args(conf_dirs)$/;"	v
+call_segs	src/extract_data_from_wav.py	/^    call_segs = extract_call_seg(table_filenames)$/;"	v
+conf_dirs	src/train_script.py	/^conf_dirs = ['dps.config.conf_tag_cnn_lstm']$/;"	v
+dataProvider	src/train_script.py	/^    dataProvider = DataProvider(data_shape, label_shape, args.num_classes)$/;"	v
+data_file_name	src/train_script.py	/^    data_file_name = '..\/data\/train_data_M93A.hdf5'$/;"	v
+data_shape	src/train_script.py	/^    data_shape = (DATA_HEIGHT, DATA_WIDTH, 3, MAX_LSTM_STEP)$/;"	v
+dataset	dps/dataio/data_provider.py	/^    def dataset(self):$/;"	m	class:DataProvider
+dataset	dps/utils/data_provider.py	/^    def dataset(self):$/;"	m	class:DataProvider
+epochs_completed	dps/dataio/data_provider.py	/^    def epochs_completed(self):$/;"	m	class:DataProvider
+epochs_completed	dps/utils/data_provider.py	/^    def epochs_completed(self):$/;"	m	class:DataProvider
+extract_call_seg	src/extract_data_from_wav.py	/^def extract_call_seg(table_filenames):$/;"	f
+extract_data	src/extract_data_from_wav.py	/^def extract_data(wav_filenames, call_segs, hdf5_filename):$/;"	f
+father_dir	src/train_script.py	/^father_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))$/;"	v
+get_info_from_filename	src/utilizer.py	/^def get_info_from_filename(filename):$/;"	f
+hdf5_filename	src/extract_data_from_wav.py	/^    hdf5_filename = '..\/data\/train_data_M93A.hdf5'$/;"	v
+img	src/test.py	/^img = cv.imread(img_path)$/;"	v
+img	src/test.py	/^img = cv.resize(img, (128,256))$/;"	v
+img_path	src/test.py	/^img_path = '\/mnt\/hgfs\/VM_share\/8c.jpg'$/;"	v
+init_arguments	dps/config/conf_tag_cnn_lstm.py	/^def init_arguments(parser):$/;"	f
+init_global_step	dps/models/clf/cnn_lstm.py	/^    def init_global_step(self):$/;"	m	class:CNNLSTM
+label_shape	src/train_script.py	/^    label_shape = (MAX_LSTM_STEP)$/;"	v
+labelset	dps/dataio/data_provider.py	/^    def labelset(self):$/;"	m	class:DataProvider
+labelset	dps/utils/data_provider.py	/^    def labelset(self):$/;"	m	class:DataProvider
+load_argparser_args	dps/utils/utils.py	/^def load_argparser_args(conf_dirs):$/;"	f
+load_h5py	dps/dataio/data_provider.py	/^    def load_h5py(self, filename, dset_data='dset_data', dset_label='dset_label'):$/;"	m	class:DataProvider
+load_h5py	dps/utils/data_provider.py	/^    def load_h5py(self, filename, dset_data='dset_data', dset_label='dset_label'):$/;"	m	class:DataProvider
+model	src/train_script.py	/^    model = model_class(args)$/;"	v
+model_class	src/train_script.py	/^    model_class = module.__dict__[args.model_name]$/;"	v
+model_setup	dps/models/clf/cnn_lstm.py	/^    def model_setup(self, args):$/;"	m	class:CNNLSTM
+module	src/train_script.py	/^    module = __import__(args.model_path, fromlist=[args.model_name])$/;"	v
+next_batch	dps/dataio/data_provider.py	/^    def next_batch(self, batch_size, sparse=False, shuffle=True):$/;"	m	class:DataProvider
+next_batch	dps/utils/data_provider.py	/^    def next_batch(self, batch_size, sparse=False, shuffle=True):$/;"	m	class:DataProvider
+num_examples	dps/dataio/data_provider.py	/^    def num_examples(self):$/;"	m	class:DataProvider
+num_examples	dps/utils/data_provider.py	/^    def num_examples(self):$/;"	m	class:DataProvider
+query	src/utilizer.py	/^    def query(self, start_time, stop_time, steps):$/;"	m	class:AudioStateQuery
+shuffle	dps/dataio/data_provider.py	/^    def shuffle(self):$/;"	m	class:DataProvider
+shuffle	dps/utils/data_provider.py	/^    def shuffle(self):$/;"	m	class:DataProvider
+table_filenames	src/extract_data_from_wav.py	/^    table_filenames = ['\/mnt\/hgfs\/VM_share\/SelectionTable_voc_M93A_c_S187.txt',$/;"	v
+wav_filenames	src/extract_data_from_wav.py	/^    wav_filenames = ['\/mnt\/hgfs\/VM_share\/voc_M93A_c_S187.wav',$/;"	v

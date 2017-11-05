@@ -4,7 +4,7 @@ from src.config import *
 def get_info_from_filename(filename):
     filename = filename.split('/')[-1]
     divide = re.split('_|\.', filename.strip())
-    if divide[0] != 'voc': 
+    if divide[0] != 'voc':
         divide = divide[1:]
     prefix = divide[0]
     subject = divide[1]
@@ -31,8 +31,7 @@ class AudioStateQuery():
             for i in range(start, stop):
                 flag[i] = call_type_ind
         self.flag = flag
-        
-    
+
     def query(self, start_time, stop_time, steps):
         start = int(start_time / self.res)
         stop = int(stop_time / self.res)
